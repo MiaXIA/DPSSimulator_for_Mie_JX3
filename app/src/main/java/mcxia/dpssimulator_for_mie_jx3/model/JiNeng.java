@@ -9,13 +9,13 @@ import java.util.HashMap;
 
 public class JiNeng {
     private String name;
-    private int cd;
+    private double cd;
     private int damage;
     //private int huixin;
     //private int huixiao;
     private HashMap<String, Integer> MiJi;
 
-    public JiNeng(String name, int cd, int damage, int huixin, int huixiao){
+    public JiNeng(String name, double cd, int damage, int huixin, int huixiao){
         this.name = name;
         this.cd = cd;
         this.damage = damage;
@@ -27,10 +27,10 @@ public class JiNeng {
         return name;
     }
 
-    public int getCd(){
+    public double getCd(){
         return cd;
     }
-    public void setCd(int cd){
+    public void setCd(double cd){
         this.cd = cd;
     }
 
