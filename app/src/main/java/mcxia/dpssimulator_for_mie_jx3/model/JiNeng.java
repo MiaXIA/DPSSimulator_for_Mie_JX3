@@ -1,4 +1,4 @@
-package mcxia.dpssimulator_for_mie_jx3;
+package mcxia.dpssimulator_for_mie_jx3.model;
 
 import java.util.HashMap;
 
