@@ -1,4 +1,4 @@
-package mcxia.dpssimulator_for_mie_jx3;
+package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
 
+import mcxia.dpssimulator_for_mie_jx3.R;
 import mcxia.dpssimulator_for_mie_jx3.model.DPSCalculator;
 import mcxia.dpssimulator_for_mie_jx3.model.PersonalAttribute;
 
