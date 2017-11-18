@@ -6,15 +6,15 @@ package mcxia.dpssimulator_for_mie_jx3;
  */
 
 public class PersonalAttribute {
-    private int attack;
-    private int shenfa;
-    private int huixin;
-    private int huixiao;
-    private int jiasu;
-    private int mingzhong;
-    private int wushuang;
+    private double attack;
+    private double shenfa;
+    private double huixin;
+    private double huixiao;
+    private double jiasu;
+    private double mingzhong;
+    private double wushuang;
 
-    public PersonalAttribute(int attack, int shenfa, int huixin, int huixiao, int jiasu, int mingzhong, int wushuang){
+    public PersonalAttribute(double attack, double shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang){
         this.attack = attack;
         this.shenfa = shenfa;
         this.huixin = huixin;
@@ -24,52 +24,52 @@ public class PersonalAttribute {
         this.wushuang = wushuang;
     }
 
-    public int getAttack(){
+    public double getAttack(){
         return attack;
     }
-    public void setAttack(int attack){
+    public void setAttack(double attack){
         this.attack = attack;
     }
 
-    public int getShenfa(){
+    public double getShenfa(){
         return shenfa;
     }
-    public void setShenfa(int shenfa){
+    public void setShenfa(double shenfa){
         this.shenfa = shenfa;
     }
 
-    public int getHuixin(){
+    public double getHuixin(){
         return huixin;
     }
-    public void setHuixin(int huixin){
+    public void setHuixin(double huixin){
         this.huixin = huixin;
     }
 
-    public int getHuixiao(){
+    public double getHuixiao(){
         return huixiao;
     }
-    public void setHuixiao(int huixiao){
+    public void setHuixiao(double huixiao){
         this.huixiao = huixiao;
     }
 
-    public int getJiasu(){
+    public double getJiasu(){
         return jiasu;
     }
-    public void setJiasu(int jiasu){
+    public void setJiasu(double jiasu){
         this.jiasu = jiasu;
     }
 
-    public int getMingzhong(){
+    public double getMingzhong(){
         return mingzhong;
     }
-    public void setMingzhong(int mingzhong){
+    public void setMingzhong(double mingzhong){
         this.mingzhong = mingzhong;
     }
 
-    public int getWushuang(){
+    public double getWushuang(){
         return wushuang;
     }
-    public void setWushuang(int wushuang){
+    public void setWushuang(double wushuang){
         this.wushuang = wushuang;
     }
 }
