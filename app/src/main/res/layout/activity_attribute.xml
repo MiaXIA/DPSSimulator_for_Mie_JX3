@@ -24,7 +24,30 @@
             android:inputType="number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:hint="请输入整数"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text = "破防："/>
+
+        <EditText
+            android:id = "@+id/PF_number"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="请输入整数"/>
 
     </LinearLayout>
 
@@ -108,7 +131,8 @@
             android:inputType="number"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:hint="请输入整数"/>
 
     </LinearLayout>
 
