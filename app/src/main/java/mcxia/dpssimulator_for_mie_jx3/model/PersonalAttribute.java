@@ -1,4 +1,4 @@
-package mcxia.dpssimulator_for_mie_jx3;
+package mcxia.dpssimulator_for_mie_jx3.model;
 
 /**
  * Created by pipiyby on 11/13/17.
@@ -6,15 +6,16 @@ package mcxia.dpssimulator_for_mie_jx3;
  */
 
 public class PersonalAttribute {
-    private double attack;
-    private double shenfa;
+    private int attack;
+    private int shenfa;
     private double huixin;
     private double huixiao;
     private double jiasu;
     private double mingzhong;
     private double wushuang;
+    private int pofang;
 
-    public PersonalAttribute(double attack, double shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang){
+    public PersonalAttribute(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         this.attack = attack;
         this.shenfa = shenfa;
         this.huixin = huixin;
@@ -22,19 +23,20 @@ public class PersonalAttribute {
         this.jiasu = jiasu;
         this.mingzhong = mingzhong;
         this.wushuang = wushuang;
+        this.pofang = pofang;
     }
 
-    public double getAttack(){
+    public int getAttack(){
         return attack;
     }
-    public void setAttack(double attack){
+    public void setAttack(int attack){
         this.attack = attack;
     }
 
-    public double getShenfa(){
+    public int getShenfa(){
         return shenfa;
     }
-    public void setShenfa(double shenfa){
+    public void setShenfa(int shenfa){
         this.shenfa = shenfa;
     }
 
@@ -71,5 +73,12 @@ public class PersonalAttribute {
     }
     public void setWushuang(double wushuang){
         this.wushuang = wushuang;
+    }
+
+    public int getPofang(){
+        return pofang;
+    }
+    public void setPofang(int pofang){
+        this.pofang = pofang;
     }
 }
