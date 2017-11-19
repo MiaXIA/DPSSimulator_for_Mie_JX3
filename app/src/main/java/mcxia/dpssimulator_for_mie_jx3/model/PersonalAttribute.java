@@ -81,4 +81,38 @@ public class PersonalAttribute {
     public void setPofang(int pofang){
         this.pofang = pofang;
     }
+
+    public double getGongCD(){
+        if(jiasu>=0 && jiasu<0.11){
+            return 1.5;
+        } else if(jiasu>=0.11 && jiasu<4.41){
+            return 1.44;
+        } else if(jiasu>=4.41 && jiasu<9.2){
+            return 1.38;
+        } else if(jiasu>=9.2 && jiasu<14.37){
+            return 1.31;
+        } else if(jiasu>=14.37 && jiasu<20.03){
+            return 1.25;
+        } else if(jiasu>=20.03){
+            return 1.19;
+        }
+        return 1.5;
+    }
+
+    public double getACD(){
+        if(jiasu>=0 && jiasu<0.11){
+            return 1.31;
+        } else if(jiasu>=0.11 && jiasu<5.09){
+            return 1.25;
+        } else if(jiasu>=5.09 && jiasu<10.56){
+            return 1.19;
+        } else if(jiasu>=10.56 && jiasu<16.70){
+            return 1.13;
+        } else if(jiasu>=16.70 && jiasu<23.55){
+            return 1.06;
+        } else if(jiasu>=23.55){
+            return 1.0;
+        }
+        return 1.31;
+    }
 }

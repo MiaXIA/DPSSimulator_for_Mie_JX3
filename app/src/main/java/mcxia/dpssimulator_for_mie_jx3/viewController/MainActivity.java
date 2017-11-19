@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
 import mcxia.dpssimulator_for_mie_jx3.model.DPSCalculator;
+import mcxia.dpssimulator_for_mie_jx3.model.Mie;
 import mcxia.dpssimulator_for_mie_jx3.model.PersonalAttribute;
 
 /**
@@ -17,7 +18,7 @@ import mcxia.dpssimulator_for_mie_jx3.model.PersonalAttribute;
 
 public class MainActivity extends AppCompatActivity{
 
-    private EditText GJ_Num, SF_Num, HXN_Num, HXO_Num, JS_Num, MZ_Num, WS_Num;
+    private EditText GJ_Num, SF_Num, HXN_Num, HXO_Num, JS_Num, MZ_Num, WS_Num, PF_Num;
     private Button simulation;
     private DPSCalculator myCalculator;
 
@@ -34,10 +35,11 @@ public class MainActivity extends AppCompatActivity{
         JS_Num = findViewById(R.id.JS_number);
         MZ_Num = findViewById(R.id.MZ_number);
         WS_Num = findViewById(R.id.WS_number);
+        PF_Num = findViewById(R.id.PF_number);
 
         simulation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //PersonalAttribute myPA = new PersonalAttribute(getNum(GJ_Num), getNum(SF_Num), getNum(HXN_Num), getNum(HXO_Num), getNum(JS_Num), getNum(MZ_Num), getNum(WS_Num));
+                Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
 
             }
         });
