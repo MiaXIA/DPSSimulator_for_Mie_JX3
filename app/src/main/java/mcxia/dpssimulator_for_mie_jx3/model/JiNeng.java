@@ -17,8 +17,10 @@ public class JiNeng {
     private double cd;
     @CsvBindByName
     private int damage;
-    //private int huixin;
-    //private int huixiao;
+    @CsvBindByName
+    private int huixin;
+    @CsvBindByName
+    private int huixiao;
     private HashMap<String, Integer> MiJi;
 
     public JiNeng(String name, double cd, int damage, int huixin, int huixiao){
