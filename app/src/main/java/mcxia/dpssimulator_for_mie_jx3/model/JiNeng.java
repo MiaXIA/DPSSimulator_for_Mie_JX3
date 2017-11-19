@@ -1,5 +1,7 @@
 package mcxia.dpssimulator_for_mie_jx3.model;
 
+import com.opencsv.bean.CsvBindByName;
+
 import java.util.HashMap;
 
 /**
@@ -8,8 +10,12 @@ import java.util.HashMap;
  */
 
 public class JiNeng {
+
+    @CsvBindByName
     private String name;
+    @CsvBindByName
     private double cd;
+    @CsvBindByName
     private int damage;
     //private int huixin;
     //private int huixiao;
