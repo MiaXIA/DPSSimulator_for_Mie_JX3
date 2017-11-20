@@ -10,10 +10,12 @@ import java.util.HashMap;
 public class Mie {
     private HashMap<String, JiNeng> JN;
     private PersonalAttribute MianBan;
+    private int dou;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
-        MianBan = new PersonalAttribute(attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
+        MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
         InitJiNeng();
+        dou = 10;
     }
 
     private void InitJiNeng(){

@@ -1,6 +1,7 @@
-name,mana,-dou,+dou,cd,gcd,lasttime,readtime,basicdamage,bonusweapondamage,mj1,mj2,mj3,mj4,mj5,mj6,mj7,mj8,mj9
-bhgy,538,0,1,15,1.5,0,0,100,200,cd-1s,mana-5%,mana-10%,damage+3%,damage+4%,damage+5%,mingzhong+2%,mingzhong+0.5dou,0
-wwwj,584,0.5,0,0,1.5,0.0,100,200,huixing+2%,huixing+3%,huixin+4%,shanghai+3%,shanghai+4%,shanghai+5%,mingzhong+1%,mingzhong+2%,mingzhong+0.5dou
-shty,220,0,1,2,1.5,0,0,100,100,cd-0.5s,huixing+2%,huixing+3%,huixing+4%,shanghai+3%,shanghai+4%,shanghai+5%,mingzhong+1%,mingzhong+2%
-wjgz,916,0,0,15,1.5,30,0,100,0,0,0,0,0,0,0,0,0,0
-wjgzdot,0,0,0,0,0,30,0,100,0,waifang-5%,0,0,0,0,0,0,0,0
+name,mana,dou,cd,gcd,lasttime,readtime,basicdamage,bonusweapondamage
+bhgy,538,+2,15,1.5,0,0,100,200
+wwwj,584,-1,0,1.5,0.0,100,200
+shty,220,+2,2,1.5,0,0,100,100
+tdwj,478,+2,8,1.5,0,0,100,0
+sxc,222,0,10,1.5,24,1,0,0
+bf,100,0,120,0,12,0,0,0
