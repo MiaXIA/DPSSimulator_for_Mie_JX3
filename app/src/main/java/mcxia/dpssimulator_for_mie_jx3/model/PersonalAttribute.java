@@ -115,4 +115,9 @@ public class PersonalAttribute {
         }
         return 1.31;
     }
+
+    public String toString(){
+        return "Attack: " + attack + ",\nShenFa: " + shenfa + ",\nHuiXin: " + huixin + ",\nHuiXiao: " + huixiao
+                + ",\nJiaSu: " + jiasu + ",\nMingZhong: " + mingzhong + ",\nWuShuang: " + wushuang + ",\nPoFang: " + pofang;
+    }
 }

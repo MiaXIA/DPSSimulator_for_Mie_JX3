@@ -14,22 +14,28 @@ public class JiNeng {
     @CsvBindByName
     private String name;
     @CsvBindByName
+    private int mana;
+    @CsvBindByName
+    private int dou;
+    @CsvBindByName
     private double cd;
     @CsvBindByName
-    private int damage;
+    private double gcd;
     @CsvBindByName
+    private int basicdamage;
+    @CsvBindByName
+    private int bonusweapondamage;
+    @CsvBindByName
+    private int lasttime;
+    @CsvBindByName
+    private int readtime;
+    /*@CsvBindByName
     private int huixin;
     @CsvBindByName
-    private int huixiao;
+    private int huixiao;*/
     private HashMap<String, Integer> MiJi;
 
-    public JiNeng(String name, double cd, int damage, int huixin, int huixiao){
-        this.name = name;
-        this.cd = cd;
-        this.damage = damage;
-        //this.huixin = huixin;
-        //this.huixiao = huixiao;
-    }
+
 
     public String getName(){
         return name;
@@ -42,11 +48,53 @@ public class JiNeng {
         this.cd = cd;
     }
 
-    public int getDamage(){
-        return damage;
+    public double getGcd(){
+        return gcd;
     }
-    public void setDamage(int damage){
-        this.damage = damage;
+    public void setGcd(double gcd){
+        this.gcd = gcd;
+    }
+
+    public int getMana(){
+        return mana;
+    }
+    public void setMana(int mana){
+        this.mana = mana;
+    }
+
+    public int getDou(){
+        return dou;
+    }
+    public void setDou(int dou){
+        this.dou = dou;
+    }
+
+    public int getBasicDamage(){
+        return basicdamage;
+    }
+    public void setBasicDamage(int damage){
+        this.basicdamage = damage;
+    }
+
+    public int getBonusDamage(){
+        return bonusweapondamage;
+    }
+    public void setBonusDamage(int damage){
+        this.bonusweapondamage = damage;
+    }
+
+    public int getLasttime(){
+        return lasttime;
+    }
+    public void setLasttime(int lasttime){
+        this.lasttime = lasttime;
+    }
+
+    public int getReadtime(){
+        return readtime;
+    }
+    public void setReadtime(int readtime){
+        this.readtime = readtime;
     }
 
     /*
