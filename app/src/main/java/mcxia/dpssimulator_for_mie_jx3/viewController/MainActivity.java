@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.InputStream;
+
 import mcxia.dpssimulator_for_mie_jx3.R;
 import mcxia.dpssimulator_for_mie_jx3.model.DPSCalculator;
 import mcxia.dpssimulator_for_mie_jx3.model.Mie;
@@ -42,9 +44,9 @@ public class MainActivity extends AppCompatActivity{
         simulation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
-                myMie.InitJiNeng(MainActivity.this);
-                //String testStr = Mie.showJN();
-                //Log.d("Test Ji Neng", ""+testStr);
+                InputStream is = getResources().openRawResource(R.raw.jineng);
+                myMie.InitJiNeng(is);
+
             }
         });
     }

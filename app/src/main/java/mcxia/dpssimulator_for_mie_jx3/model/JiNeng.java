@@ -35,7 +35,9 @@ public class JiNeng {
     private int huixiao;*/
     private HashMap<String, Integer> MiJi;
 
-
+    public JiNeng(String name){
+        this.name = name;
+    }
 
     public String getName(){
         return name;
