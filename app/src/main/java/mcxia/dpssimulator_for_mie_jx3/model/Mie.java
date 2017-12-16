@@ -12,9 +12,6 @@ import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.*;
 
-import com.opencsv.CSVReader;
-import com.opencsv.bean.ColumnPositionMappingStrategy;
-import com.opencsv.bean.CsvToBean;
 import java.io.InputStreamReader;
 
 /**
@@ -68,6 +65,14 @@ public class Mie {
 
     static public String showMianBan(){
         return MianBan.toString();
+    }
+
+    public HashMap<String, JiNeng> getJN(){
+        return JN;
+    }
+
+    public int getDou(){
+        return dou;
     }
 
 }
