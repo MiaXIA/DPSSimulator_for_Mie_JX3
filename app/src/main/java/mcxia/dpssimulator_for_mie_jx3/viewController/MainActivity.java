@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
                 InputStream is = getResources().openRawResource(R.raw.jineng);
                 myMie.InitJiNeng(is);
 
+                goDPSSim(myMie);
             }
         });
     }
@@ -59,6 +60,10 @@ public class MainActivity extends AppCompatActivity{
     private int getNum(EditText myEdit){
         String mytext = myEdit.getText().toString();
         return Integer.parseInt(mytext);
+    }
+
+    private void goDPSSim(Mie mymie){
+        myCalculator = new DPSCalculator(mymie);
     }
 
 }
