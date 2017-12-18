@@ -24,6 +24,9 @@ public class Mie {
     static private List beans;
     static private PersonalAttribute MianBan;
     private int dou;
+    private double SXCTime;
+    private double BHcd;
+    private int douLimit;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
@@ -74,5 +77,32 @@ public class Mie {
     public int getDou(){
         return dou;
     }
+    public double getSXCTime(){
+        return SXCTime;
+    }
+    public double getBHcd(){
+        return BHcd;
+    }
 
+    public void setSXCTime(double SXCTime){
+        this.SXCTime = SXCTime;
+    }
+
+    public void setBHcd(double BHcd){
+        this.BHcd = BHcd;
+    }
+
+    public double doSXC(){
+        setSXCTime(24.0);
+        return 0.0;
+    }
+
+    public double doBH(){
+        setBHcd(15.0);
+        return 0.0;
+    }
+
+    public int getDouLimit(){
+        return douLimit;
+    }
 }
