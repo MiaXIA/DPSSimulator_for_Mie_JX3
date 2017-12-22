@@ -47,7 +47,7 @@ public class DPSCalculator {
 
             @Override
             public void onFinish() {
-
+                cond = 1;
             }
         };
 
@@ -108,6 +108,9 @@ public class DPSCalculator {
                 SXCTimer.start();
             }
             //GCD(TBD)
+            GCDTimer.start();
+            while(cond == 0) {
+            }
         }
     }
 
