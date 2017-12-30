@@ -24,7 +24,7 @@ public class Mie {
     static private List beans;
     static private PersonalAttribute MianBan;
     private int dou;
-    private double SXCTime;
+    static private double SXCTime;
     private double BHcd;
     private int douLimit;
 
@@ -60,6 +60,7 @@ public class Mie {
             e.printStackTrace();
         }
         Log.d("Parse Test", "2 " + JN.get("wwwj").getBonusDamage());
+        SXCTime = JN.get("sxc").getLasttime();
     }
 
     static public String showJN(){
@@ -92,14 +93,42 @@ public class Mie {
         this.BHcd = BHcd;
     }
 
-    public double doSXC(){
+    public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
+        //Dou calculation(TBD)
         return 0.0;
     }
 
-    public double doBH(){
+    public double doBH(){ //Ba Huang
         setBHcd(15.0);
+        //Dou calculation(TBD)
         return 0.0;
+    }
+
+    public double doRJ(){ //Ren Jian He Yi
+        setSXCTime(0.0);
+        //Dou calculation(TBD)
+        return 0.0;
+    }
+
+    public double doWW(){   //Wu Wo Wu Jian
+        dou = 0;
+        return 0.0;
+    }
+
+    public double doSH(){
+        dou += 2;
+        if(dou > 10){
+            dou = 10;
+        }
+        return 0.0;
+    }
+
+    public void generateDou(){
+        dou += 1;
+        if(dou > 10){
+            dou = 10;
+        }
     }
 
     public int getDouLimit(){
