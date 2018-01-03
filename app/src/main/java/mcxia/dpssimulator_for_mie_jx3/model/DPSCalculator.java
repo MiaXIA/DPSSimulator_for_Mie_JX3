@@ -14,9 +14,11 @@ public class DPSCalculator {
     private int DPS;
     private int DPSTime;
     private int cond;
+    private int gcdcond;
     private CountDownTimer SXCTimer;
     private CountDownTimer GCDTimer;
     private CountDownTimer BHCDTimer;
+    private boolean loopctrl;
 
 
     public DPSCalculator(Mie mymie){
@@ -24,6 +26,8 @@ public class DPSCalculator {
         DPS = 0;
         targetDPS = 100000;
         cond = 1;
+        gcdcond = 0;
+        loopctrl = false;
         setupTimers();
     }
 
@@ -40,14 +44,14 @@ public class DPSCalculator {
             }
         };
 
-        GCDTimer = new CountDownTimer(1500, 1000) {
+        GCDTimer = new CountDownTimer((long)MieModel.getGcd(), 1000) {
             @Override
             public void onTick(long l) {
             }
 
             @Override
             public void onFinish() {
-                cond = 1;
+                gcdcond = 1;
             }
         };
 
@@ -69,14 +73,31 @@ public class DPSCalculator {
         CountDownTimer cdt = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long l) {
-                loopDPS();
+                /*if(loopctrl == false) {
+                    Log.d("Test Countdown 1", Long.toString(l));
+                    //loopDPS();
+                    loopctrl = true;
+                }*/
+                MieModel.generateDou();
             }
 
             @Override
             public void onFinish() {
-
+                //loopctrl = false;
+                cond = 0;
             }
         }.start();
+        CountDownTimer autoAtt = new CountDownTimer(300000, (long)MieModel.getAutocd()) {
+            @Override
+            public void onTick(long l) {
+                DPS += MieModel.autoAtt();
+            }
+
+            @Override
+            public void onFinish() {
+            }
+        }.start();
+        loopDPS();
     }
 
 
@@ -86,18 +107,20 @@ public class DPSCalculator {
                 if(MieModel.getSXCTime() > 1.5){
                     if(MieModel.getDou() < MieModel.getDouLimit()){
                         if(MieModel.getBHcd() > 0){
-                            //Calculate 3huan damage(TBD)
+                            DPS += MieModel.doSH();
                         } else {
                             //Calculate 8huang damage
                             //Set 8huang CD to 15
                             DPS += MieModel.doBH();
+                            //BH Timer?????
+                            BHCDTimer.start();
                         }
                     } else {
-                        //Calculate WuWo damage(TBD)
+                        MieModel.doWW();
                     }
                 } else {
-                    //Calculate renjian damage(TBD)
-                    //Set SXCTime to 0.
+                    DPS += MieModel.doRJ();
+                    SXCTimer.cancel(); //Attention: there will be bugs here.
                     MieModel.setSXCTime(0.0);
                 }
             }
@@ -107,9 +130,9 @@ public class DPSCalculator {
                 //Start SXC last time timer
                 SXCTimer.start();
             }
-            //GCD(TBD)
+            gcdcond = 0;
             GCDTimer.start();
-            while(cond == 0) {
+            while(gcdcond == 0) {
             }
         }
     }

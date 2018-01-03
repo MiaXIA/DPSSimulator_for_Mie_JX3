@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity{
 
     private void goDPSSim(Mie mymie){
         myCalculator = new DPSCalculator(mymie);
+        myCalculator.goSim();
     }
 
 }

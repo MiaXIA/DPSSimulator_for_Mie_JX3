@@ -24,8 +24,8 @@ public class Mie {
     static private List beans;
     static private PersonalAttribute MianBan;
     private int dou;
-    private double SXCTime;
-    private double BHcd;
+    static private double SXCTime;
+    static private double BHcd;
     private int douLimit;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
@@ -33,6 +33,7 @@ public class Mie {
         JN = new HashMap<>();
         dou = 10;
     }
+
 
     public static void InitJiNeng(InputStream is){
         //Read data from CSV file to init JiNeng, using loop to put each JiNeng into HashMap JN
@@ -54,12 +55,13 @@ public class Mie {
                 sample.setBonusDamage(Integer.parseInt(tokens[8]));
                 JN.put(tokens[0], sample);
             }
-//
         } catch (IOException e){
             Log.e("Parse Test", "CSV Test " + e.getMessage());
             e.printStackTrace();
         }
-        Log.d("Parse Test", "2 " + JN.get("wwwj").getBonusDamage());
+        //Log.d("Parse Test", "2 " + JN.get("wwwj").getBonusDamage());
+        SXCTime = JN.get("sxc").getLasttime();
+        BHcd = JN.get("bhgy").getCd();
     }
 
     static public String showJN(){
@@ -92,14 +94,57 @@ public class Mie {
         this.BHcd = BHcd;
     }
 
-    public double doSXC(){
+    public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
+        //Dou calculation(TBD)
         return 0.0;
     }
 
-    public double doBH(){
+    public double doBH(){ //Ba Huang
         setBHcd(15.0);
+        //Dou calculation(TBD)
         return 0.0;
+    }
+
+    public double doRJ(){ //Ren Jian He Yi
+        setSXCTime(0.0);
+        double N = MianBan.getAttack() - MianBan.getShenfa()*1.45;
+        double A = MianBan.getShenfa()*1.45;
+        double X = 0.0; //(TBD)
+        //Dou calculation(TBD)
+        return (N*(1+X/100)+A);
+    }
+
+    public double doWW(){   //Wu Wo Wu Jian
+        dou = 0;
+        return 0.0;
+    }
+
+    public double doSH(){
+        dou += 2;
+        if(dou > 10){
+            dou = 10;
+        }
+        return 0.0;
+    }
+
+    public void generateDou(){
+        dou += 1;
+        if(dou > 10){
+            dou = 10;
+        }
+    }
+
+    public double autoAtt(){
+        return 0.0;
+    }
+
+    public double getGcd(){
+        return MianBan.getGongCD();
+    }
+
+    public double getAutocd(){
+        return MianBan.getACD();
     }
 
     public int getDouLimit(){
