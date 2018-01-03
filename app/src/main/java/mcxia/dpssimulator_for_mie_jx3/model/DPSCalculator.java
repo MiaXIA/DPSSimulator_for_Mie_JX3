@@ -14,6 +14,7 @@ public class DPSCalculator {
     private int DPS;
     private int DPSTime;
     private int cond;
+    private int gcdcond;
     private CountDownTimer SXCTimer;
     private CountDownTimer GCDTimer;
     private CountDownTimer BHCDTimer;
@@ -25,6 +26,7 @@ public class DPSCalculator {
         DPS = 0;
         targetDPS = 100000;
         cond = 1;
+        gcdcond = 0;
         loopctrl = false;
         setupTimers();
     }
@@ -42,14 +44,14 @@ public class DPSCalculator {
             }
         };
 
-        GCDTimer = new CountDownTimer(1500, 1000) {
+        GCDTimer = new CountDownTimer((long)MieModel.getGcd(), 1000) {
             @Override
             public void onTick(long l) {
             }
 
             @Override
             public void onFinish() {
-                cond = 1;
+                gcdcond = 1;
             }
         };
 
@@ -71,19 +73,31 @@ public class DPSCalculator {
         CountDownTimer cdt = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long l) {
-                if(loopctrl == false) {
+                /*if(loopctrl == false) {
                     Log.d("Test Countdown 1", Long.toString(l));
-                    loopDPS();
+                    //loopDPS();
                     loopctrl = true;
-                }
+                }*/
                 MieModel.generateDou();
             }
 
             @Override
             public void onFinish() {
-                loopctrl = false;
+                //loopctrl = false;
+                cond = 0;
             }
         }.start();
+        CountDownTimer autoAtt = new CountDownTimer(300000, (long)MieModel.getAutocd()) {
+            @Override
+            public void onTick(long l) {
+                DPS += MieModel.autoAtt();
+            }
+
+            @Override
+            public void onFinish() {
+            }
+        }.start();
+        loopDPS();
     }
 
 
@@ -106,7 +120,8 @@ public class DPSCalculator {
                     }
                 } else {
                     DPS += MieModel.doRJ();
-                    SXCTimer.cancel();
+                    SXCTimer.cancel(); //Attention: there will be bugs here.
+                    MieModel.setSXCTime(0.0);
                 }
             }
             else {
@@ -115,8 +130,9 @@ public class DPSCalculator {
                 //Start SXC last time timer
                 SXCTimer.start();
             }
+            gcdcond = 0;
             GCDTimer.start();
-            while(cond == 0) {
+            while(gcdcond == 0) {
             }
         }
     }
