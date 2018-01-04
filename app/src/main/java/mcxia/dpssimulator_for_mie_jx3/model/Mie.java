@@ -21,12 +21,14 @@ import java.io.InputStreamReader;
 
 public class Mie {
     static private HashMap<String, JiNeng> JN;
-    static private List beans;
     static private PersonalAttribute MianBan;
     private int dou;
     static private double SXCTime;
     static private double BHcd;
     private int douLimit;
+    private double N, A, X;
+    private double AttNum;
+    private double WAttNum;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
@@ -64,8 +66,8 @@ public class Mie {
         BHcd = JN.get("bhgy").getCd();
     }
 
-    static public String showJN(){
-        return beans.get(0).toString();
+    public void CalAttNum(){
+        AttNum = N*(1+X/100)+A;
     }
 
     static public String showMianBan(){
@@ -93,6 +95,8 @@ public class Mie {
     public void setBHcd(double BHcd){
         this.BHcd = BHcd;
     }
+
+    //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
@@ -135,8 +139,9 @@ public class Mie {
         }
     }
 
+    //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
     public double autoAtt(){
-        return 0.0;
+        return (1 + MianBan.getPofang())*(AttNum*0.12 + 1.2*WAttNum);
     }
 
     public double getGcd(){
