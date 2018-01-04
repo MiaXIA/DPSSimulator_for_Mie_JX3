@@ -100,7 +100,10 @@ public class Mie {
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
-        //Dou calculation(TBD)
+        dou += 2;
+        if(dou > 10){
+            dou = 10;
+        }
         return 0.0;
     }
 
@@ -129,7 +132,8 @@ public class Mie {
         if(dou > 10){
             dou = 10;
         }
-        return 0.0;
+        int rand = (int)(Math.random()*13 + 123);
+        return (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
     }
 
     public void generateDou(){
