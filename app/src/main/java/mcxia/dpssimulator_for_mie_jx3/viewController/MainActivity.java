@@ -1,6 +1,7 @@
 package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,6 +49,8 @@ public class MainActivity extends AppCompatActivity{
                 myMie.InitJiNeng(is);
                 //myMie.CalAttNum();
                 //goDPSSim(myMie);
+                Intent i = new Intent(getBaseContext(), QixueActivity.class);
+                startActivity(i);
             }
         });
     }
