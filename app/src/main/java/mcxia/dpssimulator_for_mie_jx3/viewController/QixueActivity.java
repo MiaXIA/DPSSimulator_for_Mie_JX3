@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.RadioGroup;
 
 import java.io.InputStream;
 
@@ -17,13 +17,13 @@ import mcxia.dpssimulator_for_mie_jx3.model.Mie;
  */
 
 public class QixueActivity extends Activity {
+    private RadioGroup qx1RadioGroup;
 
-    private CheckBox qx1_1, qx1_2, qx1_3, qx2_1, qx2_2, qx2_3, qx3_1, qx3_2, qx3_3, qx4_1, qx4_2, qx4_3, qx5_1, qx5_2, qx5_3;
-    private CheckBox qx6_1, qx6_2, qx6_3, qx7_1, qx7_2, qx7_3, qx8_1, qx8_2, qx8_3, qx9_1, qx9_2, qx9_3, qx10_1, qx10_2, qx10_3;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qixue);
+        initView();
 
         Button gotoMiji = findViewById(R.id.simulator_button);
         gotoMiji.setOnClickListener(new View.OnClickListener() {
@@ -33,4 +33,24 @@ public class QixueActivity extends Activity {
             }
         });
     }
+
+    private void initView() {
+        /** RadioGroup and RadioButton **/
+        qx1RadioGroup = findViewById(R.id.qx1);
+        qx1RadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
+                //TODO
+                if (checkedId == R.id.qx1_1) {
+
+                } else if (checkedId == R.id.qx1_2) {
+
+                } else if (checkedId == R.id.qx1_3) {
+                    
+                }
+            }
+        });
+    }
+
+
 }
