@@ -16,26 +16,32 @@
             android:layout_weight="1"
             android:text = "第一层："/>
 
-        <CheckBox
-            android:id="@+id/qx1_1"
+        <RadioGroup
+            android:id="@+id/qx1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx1_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx1_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx1_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx1_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx1_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -50,26 +56,32 @@
             android:layout_weight="1"
             android:text = "第二层："/>
 
-        <CheckBox
-            android:id="@+id/qx2_1"
+        <RadioGroup
+            android:id="@+id/qx2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx2_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx2_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx2_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx2_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx2_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -84,26 +96,32 @@
             android:layout_weight="1"
             android:text = "第三层："/>
 
-        <CheckBox
-            android:id="@+id/qx3_1"
+        <RadioGroup
+            android:id="@+id/qx3"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx3_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx3_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx3_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx3_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx3_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -117,26 +135,32 @@
             android:layout_weight="1"
             android:text = "第四层："/>
 
-        <CheckBox
-            android:id="@+id/qx4_1"
+        <RadioGroup
+            android:id="@+id/qx4"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx4_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx4_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx4_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx4_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx4_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -150,26 +174,32 @@
             android:layout_weight="1"
             android:text = "第五层："/>
 
-        <CheckBox
-            android:id="@+id/qx5_1"
+        <RadioGroup
+            android:id="@+id/qx5"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx5_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx5_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx5_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx5_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx5_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -183,26 +213,32 @@
             android:layout_weight="1"
             android:text = "第六层："/>
 
-        <CheckBox
-            android:id="@+id/qx6_1"
+        <RadioGroup
+            android:id="@+id/qx6"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx6_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx6_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx6_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx6_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx6_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -216,26 +252,32 @@
             android:layout_weight="1"
             android:text = "第七层："/>
 
-        <CheckBox
-            android:id="@+id/qx7_1"
+        <RadioGroup
+            android:id="@+id/qx7"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx7_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx7_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx7_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx7_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx7_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -249,26 +291,32 @@
             android:layout_weight="1"
             android:text = "第八层："/>
 
-        <CheckBox
-            android:id="@+id/qx8_1"
+        <RadioGroup
+            android:id="@+id/qx8"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx8_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx8_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx8_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx8_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx8_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -282,26 +330,32 @@
             android:layout_weight="1"
             android:text = "第九层："/>
 
-        <CheckBox
-            android:id="@+id/qx9_1"
+        <RadioGroup
+            android:id="@+id/qx9"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx9_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx9_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx9_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx9_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx9_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <LinearLayout
@@ -315,26 +369,32 @@
             android:layout_weight="1"
             android:text = "第十层："/>
 
-        <CheckBox
-            android:id="@+id/qx10_1"
+        <RadioGroup
+            android:id="@+id/qx10"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
 
-        <CheckBox
-            android:id="@+id/qx10_2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
-
-        <CheckBox
-            android:layout_width="0dp"
-            android:id="@+id/qx10_3"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            <RadioButton
+                android:id="@+id/qx10_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"/>
+            <RadioButton
+                android:id="@+id/qx10_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2" />
+            <RadioButton
+                android:id="@+id/qx10_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="3" />
+        </RadioGroup>
     </LinearLayout>
 
     <Button
