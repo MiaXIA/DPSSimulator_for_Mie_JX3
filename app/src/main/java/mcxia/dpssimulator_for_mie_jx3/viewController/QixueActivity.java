@@ -3,6 +3,7 @@ package mcxia.dpssimulator_for_mie_jx3.viewController;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
@@ -18,12 +19,14 @@ import mcxia.dpssimulator_for_mie_jx3.model.Mie;
 
 public class QixueActivity extends Activity {
     private RadioGroup qx1RadioGroup;
+    private Mie mymie;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qixue);
         initView();
+        //mymie = getApplication();
 
         Button gotoMiji = findViewById(R.id.simulator_button);
         gotoMiji.setOnClickListener(new View.OnClickListener() {
@@ -42,11 +45,16 @@ public class QixueActivity extends Activity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
                 if (checkedId == R.id.qx1_1) {
-
+                    //Log.d("group test", "1 selected");
+                    mymie.setQixue(0, 1);
                 } else if (checkedId == R.id.qx1_2) {
-
+                    //Log.d("group test", "2 selected");
+                    mymie.setQixue(0, 2);
+                    mymie.getJN().get("shty").addHuixin(10.0);
+                    mymie.getJN().get("shty").addHuixiao(10.0);
                 } else if (checkedId == R.id.qx1_3) {
-                    
+                    //Log.d("group test", "3 selected");
+                    mymie.setQixue(0, 3);
                 }
             }
         });

@@ -29,11 +29,13 @@ public class Mie {
     private double N, A, X;
     private double AttNum;
     private double WAttNum;
+    private int[] qixue;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
         JN = new HashMap<>();
         dou = 10;
+        qixue = new int[10];
     }
 
 
@@ -55,6 +57,8 @@ public class Mie {
                 sample.setReadtime(Integer.parseInt(tokens[6]));
                 sample.setBasicDamage(Integer.parseInt(tokens[7]));
                 sample.setBonusDamage(Integer.parseInt(tokens[8]));
+                sample.setHuixin(0.0);
+                sample.setHuixiao(0.0);
                 JN.put(tokens[0], sample);
             }
         } catch (IOException e){
@@ -133,6 +137,9 @@ public class Mie {
             dou = 10;
         }
         int rand = (int)(Math.random()*13 + 123);
+        if(qixue[0] == 1){
+
+        }
         return (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
     }
 
@@ -158,5 +165,9 @@ public class Mie {
 
     public int getDouLimit(){
         return douLimit;
+    }
+
+    public void setQixue(int index, int choice){
+        qixue[index] = choice;
     }
 }
