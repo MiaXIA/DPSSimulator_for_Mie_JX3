@@ -28,19 +28,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="挫锐"/>
             <RadioButton
                 android:id="@+id/qx1_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="心固" />
             <RadioButton
                 android:id="@+id/qx1_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="不善" />
         </RadioGroup>
     </LinearLayout>
 
@@ -68,19 +68,19 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="同根"/>
             <RadioButton
                 android:id="@+id/qx2_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="深埋" />
             <RadioButton
                 android:id="@+id/qx2_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="吐故纳新" />
         </RadioGroup>
     </LinearLayout>
 
@@ -93,7 +93,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第三层："/>
 
         <RadioGroup
@@ -108,19 +108,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="昆吾"/>
             <RadioButton
                 android:id="@+id/qx3_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="白虹" />
             <RadioButton
                 android:id="@+id/qx3_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="数穷" />
+            <RadioButton
+                android:id="@+id/qx3_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="化三清" />
         </RadioGroup>
     </LinearLayout>
 
@@ -132,7 +138,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第四层："/>
 
         <RadioGroup
@@ -147,19 +153,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="风逝"/>
             <RadioButton
                 android:id="@+id/qx4_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="无意" />
             <RadioButton
                 android:id="@+id/qx4_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="元剑" />
+            <RadioButton
+                android:id="@+id/qx4_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="剑飞惊天" />
         </RadioGroup>
     </LinearLayout>
 
@@ -171,7 +183,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第五层："/>
 
         <RadioGroup
@@ -186,19 +198,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="独笑"/>
             <RadioButton
                 android:id="@+id/qx5_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="心转" />
             <RadioButton
                 android:id="@+id/qx5_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="狂歌" />
+            <RadioButton
+                android:id="@+id/qx5_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="合真" />
         </RadioGroup>
     </LinearLayout>
 
@@ -210,7 +228,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第六层："/>
 
         <RadioGroup
@@ -225,19 +243,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="解牛"/>
             <RadioButton
                 android:id="@+id/qx6_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="解纷" />
             <RadioButton
                 android:id="@+id/qx6_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="叠刃" />
+            <RadioButton
+                android:id="@+id/qx6_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="开兑" />
         </RadioGroup>
     </LinearLayout>
 
@@ -249,7 +273,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第七层："/>
 
         <RadioGroup
@@ -264,19 +288,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="切玉"/>
             <RadioButton
                 android:id="@+id/qx7_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="雾外江山" />
             <RadioButton
                 android:id="@+id/qx7_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="云凌" />
+            <RadioButton
+                android:id="@+id/qx7_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="凌太虚" />
         </RadioGroup>
     </LinearLayout>
 
@@ -288,7 +318,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第八层："/>
 
         <RadioGroup
@@ -303,19 +333,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="负阴"/>
             <RadioButton
                 android:id="@+id/qx8_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="无我" />
             <RadioButton
                 android:id="@+id/qx8_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="匣中" />
+            <RadioButton
+                android:id="@+id/qx8_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="惊世" />
         </RadioGroup>
     </LinearLayout>
 
@@ -327,7 +363,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第九层："/>
 
         <RadioGroup
@@ -342,19 +378,25 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="和光"/>
             <RadioButton
                 android:id="@+id/qx9_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="实腹" />
             <RadioButton
                 android:id="@+id/qx9_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="故长" />
+            <RadioButton
+                android:id="@+id/qx9_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="随物" />
         </RadioGroup>
     </LinearLayout>
 
@@ -366,7 +408,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="0.6"
             android:text = "第十层："/>
 
         <RadioGroup
@@ -381,19 +423,115 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="1"/>
+                android:text="期声"/>
             <RadioButton
                 android:id="@+id/qx10_2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="2" />
+                android:text="物我两忘" />
             <RadioButton
                 android:id="@+id/qx10_3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="3" />
+                android:text="御风" />
+            <RadioButton
+                android:id="@+id/qx10_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="心剑两望" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:text = "第十一层："/>
+
+        <RadioGroup
+            android:id="@+id/qx11"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/qx11_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="无欲"/>
+            <RadioButton
+                android:id="@+id/qx11_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="凶年" />
+            <RadioButton
+                android:id="@+id/qx11_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="静笃" />
+            <RadioButton
+                android:id="@+id/qx11_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="虚极" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:text = "第十二层："/>
+
+        <RadioGroup
+            android:id="@+id/qx12"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/qx12_1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="若水"/>
+            <RadioButton
+                android:id="@+id/qx12_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="固本" />
+            <RadioButton
+                android:id="@+id/qx12_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="玄门" />
+            <RadioButton
+                android:id="@+id/qx12_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="行天道" />
         </RadioGroup>
     </LinearLayout>
 
@@ -401,7 +539,7 @@
         android:id = "@+id/simulator_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.1"
         android:text = "模拟"/>
 
 </LinearLayout>
