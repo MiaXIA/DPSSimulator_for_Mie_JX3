@@ -1,6 +1,7 @@
 package mcxia.dpssimulator_for_mie_jx3.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.util.Log;
 
@@ -57,8 +58,9 @@ public class Mie {
                 sample.setReadtime(Integer.parseInt(tokens[6]));
                 sample.setBasicDamage(Integer.parseInt(tokens[7]));
                 sample.setBonusDamage(Integer.parseInt(tokens[8]));
-                sample.setHuixin(0.0);
-                sample.setHuixiao(0.0);
+                sample.setHuixin(Double.parseDouble(tokens[9]));
+                sample.setHuixiao(Double.parseDouble(tokens[10]));
+                sample.setPercent(Integer.parseInt(tokens[11]));
                 JN.put(tokens[0], sample);
             }
         } catch (IOException e){
@@ -169,5 +171,9 @@ public class Mie {
 
     public void setQixue(int index, int choice){
         qixue[index] = choice;
+    }
+
+    public void saveModel(){
+        //Save model in CSV file.
     }
 }
