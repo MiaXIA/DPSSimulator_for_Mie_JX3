@@ -20,6 +20,7 @@ public class JiNeng {
     private int readtime;
     private double huixin;
     private double huixiao;
+    private int percent;
     private HashMap<String, Integer> MiJi;
 
     public JiNeng(String name){
@@ -105,6 +106,16 @@ public class JiNeng {
     }
     public void addHuixiao(double a){
         this.huixiao += a;
+    }
+
+    public int getPercent(){
+        return percent;
+    }
+    public void setPercent(int percent){
+        this.percent = percent;
+    }
+    public void addPercent(int percent){
+        this.percent += percent;
     }
 
     public void addMiJi(String name, int effect){
