@@ -103,19 +103,24 @@ public class Mie {
     }
 
     //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
+    //Add SXC shanghai
+
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
-        dou += 2;
-        if(dou > 10){
-            dou = 10;
-        }
+//        dou += 2;
+//        if(dou > 10){
+//            dou = 10;
+//        }
         return 0.0;
     }
 
     public double doBH(){ //Ba Huang
         setBHcd(15.0);
-        //Dou calculation(TBD)
+        dou += 2;
+        if(dou > 10){
+            dou = 10;
+        }
         return 0.0;
     }
 
@@ -124,7 +129,6 @@ public class Mie {
         double N = MianBan.getAttack() - MianBan.getShenfa()*1.45;
         double A = MianBan.getShenfa()*1.45;
         double X = 0.0; //(TBD)
-        //Dou calculation(TBD)
         return (N*(1+X/100)+A);
     }
 

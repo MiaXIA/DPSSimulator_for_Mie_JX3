@@ -73,11 +73,6 @@ public class DPSCalculator {
         CountDownTimer cdt = new CountDownTimer(300000, 1000) {
             @Override
             public void onTick(long l) {
-                /*if(loopctrl == false) {
-                    Log.d("Test Countdown 1", Long.toString(l));
-                    //loopDPS();
-                    loopctrl = true;
-                }*/
                 MieModel.generateDou();
             }
 
