@@ -26,7 +26,7 @@ public class QixueActivity extends Activity {
         setContentView(R.layout.activity_qixue);
         initView();
 
-        Button gotoMiji = findViewById(R.id.simulator_button);
+        Button gotoMiji = findViewById(R.id.gotomiji_button);
         gotoMiji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(getBaseContext(), MijiActivity.class);
