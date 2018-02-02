@@ -1,17 +1,12 @@
 package mcxia.dpssimulator_for_mie_jx3.model;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.AssetManager;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
-import java.util.*;
 
 import java.io.InputStreamReader;
 
@@ -31,6 +26,9 @@ public class Mie {
     private double AttNum;
     private double WAttNum;
     private int[] qixue;
+
+    public Mie(){
+    }
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
@@ -108,10 +106,6 @@ public class Mie {
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
-//        dou += 2;
-//        if(dou > 10){
-//            dou = 10;
-//        }
         return 0.0;
     }
 
@@ -121,14 +115,33 @@ public class Mie {
         if(dou > 10){
             dou = 10;
         }
-        return 0.0;
+        //1 duan
+        double att = (1 + MianBan.getPofang())*(100 + AttNum*1 + 2*WAttNum);
+        //2 duan
+        att += (1 + MianBan.getPofang())*(1200 + AttNum*0.2 + 0*WAttNum);
+        //3 duan(奇穴：合光）
+        if(qixue[8] == 1){
+            att += (1 + MianBan.getPofang())*(25 + AttNum*0.25 + 0.5*WAttNum);
+        }
+        double huixinPro = Math.random();
+        if(huixinPro < (MianBan.getHuixin() + JN.get("bhgy").getHuixin())/100){
+            if(qixue[1] == 2){
+                dou += 2;
+                if(dou > 10){
+                    dou = 10;
+                }
+            }
+            return att*(MianBan.getHuixiao() + JN.get("bhgy").getHuixiao())/100;
+        } else {
+            return att;
+        }
     }
 
     public double doRJ(){ //Ren Jian He Yi
         setSXCTime(0.0);
         double att = (1 + MianBan.getPofang())*(63 + AttNum*0.0996 + 0*WAttNum);
         double huixinPro = Math.random();
-        if(huixinPro < (MianBan.getHuixin()) + JN.get("rjhy").getHuixin()){
+        if(huixinPro < (MianBan.getHuixin() + JN.get("rjhy").getHuixin())/100){
             return att*(MianBan.getHuixiao() + JN.get("rjhy").getHuixiao())/100;
         } else {
             return att;
@@ -136,8 +149,41 @@ public class Mie {
     }
 
     public double doWW(){   //Wu Wo Wu Jian
-        dou = 0;
-        return 0.0;
+        double att = (1 + MianBan.getPofang())*(0 + AttNum*(0.9+0.05*dou) + 2*WAttNum);
+        boolean fulldou = false;
+        if(dou == 10){
+            fulldou = true;
+        }
+        if(fulldou && qixue[2] == 1){
+            double huidou = Math.random();
+            if(huidou < 0.25){
+                dou = 4;
+            } else {
+                dou = 0;
+            }
+        } else {
+            dou = 0;
+        }
+        double huixinPro = Math.random();
+        if(fulldou && qixue[3] == 2){
+            if(huixinPro < (MianBan.getHuixin()/100 + JN.get("wwwj").getHuixin()/100 + 0.1)){
+                if(qixue[1] == 2){
+                    dou += 2;
+                }
+                return att*(MianBan.getHuixiao() + JN.get("wwwj").getHuixiao() + 20)/100;
+            } else {
+                return att;
+            }
+        } else {
+            if (huixinPro < (MianBan.getHuixin() + JN.get("wwwj").getHuixin())/100){
+                if (qixue[1] == 2) {
+                    dou += 2;
+                }
+                return att * (MianBan.getHuixiao() + JN.get("wwwj").getHuixiao())/ 100;
+            } else {
+                return att;
+            }
+        }
     }
 
     public double doSH(){
@@ -151,7 +197,13 @@ public class Mie {
         }
         double att = (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
         double huixinPro = Math.random();
-        if(huixinPro < (MianBan.getHuixin()) + JN.get("shty").getHuixin()){
+        if(huixinPro < (MianBan.getHuixin() + JN.get("shty").getHuixin())/100){
+            if(qixue[1] == 2){
+                dou += 2;
+                if(dou > 10){
+                    dou = 10;
+                }
+            }
             return att*(MianBan.getHuixiao() + JN.get("shty").getHuixiao())/100;
         } else {
             return att;
@@ -169,7 +221,13 @@ public class Mie {
     public double autoAtt(){
         double att =  (1 + MianBan.getPofang())*(AttNum*0.12 + 1.2*WAttNum);
         double huixinPro = Math.random();
-        if(huixinPro < MianBan.getHuixin()){
+        if(huixinPro < MianBan.getHuixin()/100){
+            if(qixue[1] == 2){
+                dou += 2;
+                if(dou > 10){
+                    dou = 10;
+                }
+            }
             return att*MianBan.getHuixiao()/100;
         } else {
             return att;
@@ -194,5 +252,9 @@ public class Mie {
 
     public void saveModel(){
         //Save model in CSV file.
+    }
+
+    public void loadModel(){
+        //Load model in CSV file.
     }
 }

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity{
                 Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
                 InputStream is = getResources().openRawResource(R.raw.jineng);
                 myMie.InitJiNeng(is);
+                myMie.saveModel();
                 Intent i = new Intent(getBaseContext(), QixueActivity.class);
                 startActivity(i);
             }
