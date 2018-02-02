@@ -126,10 +126,13 @@ public class Mie {
 
     public double doRJ(){ //Ren Jian He Yi
         setSXCTime(0.0);
-        double N = MianBan.getAttack() - MianBan.getShenfa()*1.45;
-        double A = MianBan.getShenfa()*1.45;
-        double X = 0.0; //(TBD)
-        return (N*(1+X/100)+A);
+        double att = (1 + MianBan.getPofang())*(63 + AttNum*0.0996 + 0*WAttNum);
+        double huixinPro = Math.random();
+        if(huixinPro < (MianBan.getHuixin()) + JN.get("rjhy").getHuixin()){
+            return att*(MianBan.getHuixiao() + JN.get("rjhy").getHuixiao())/100;
+        } else {
+            return att;
+        }
     }
 
     public double doWW(){   //Wu Wo Wu Jian
@@ -146,7 +149,13 @@ public class Mie {
         if(qixue[0] == 1){
 
         }
-        return (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
+        double att = (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
+        double huixinPro = Math.random();
+        if(huixinPro < (MianBan.getHuixin()) + JN.get("shty").getHuixin()){
+            return att*(MianBan.getHuixiao() + JN.get("shty").getHuixiao())/100;
+        } else {
+            return att;
+        }
     }
 
     public void generateDou(){
@@ -158,7 +167,13 @@ public class Mie {
 
     //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
     public double autoAtt(){
-        return (1 + MianBan.getPofang())*(AttNum*0.12 + 1.2*WAttNum);
+        double att =  (1 + MianBan.getPofang())*(AttNum*0.12 + 1.2*WAttNum);
+        double huixinPro = Math.random();
+        if(huixinPro < MianBan.getHuixin()){
+            return att*MianBan.getHuixiao()/100;
+        } else {
+            return att;
+        }
     }
 
     public double getGcd(){
