@@ -24,7 +24,7 @@ import mcxia.dpssimulator_for_mie_jx3.model.PersonalAttribute;
 public class MainActivity extends AppCompatActivity{
 
     private EditText GJ_Num, SF_Num, HXN_Num, HXO_Num, JS_Num, MZ_Num, WS_Num, PF_Num;
-    private Button simulation;
+    private Button gotoqixue;
     private DPSCalculator myCalculator;
 
     @Override
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attribute);
 
-        simulation = findViewById(R.id.simulator_button);
+        gotoqixue = findViewById(R.id.gotoqixue_button);
         GJ_Num = findViewById(R.id.GJ_number);
         SF_Num = findViewById(R.id.SF_number);
         HXN_Num = findViewById(R.id.HXN_number);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity{
         WS_Num = findViewById(R.id.WS_number);
         PF_Num = findViewById(R.id.PF_number);
 
-        simulation.setOnClickListener(new View.OnClickListener() {
+        gotoqixue.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
                 InputStream is = getResources().openRawResource(R.raw.jineng);
