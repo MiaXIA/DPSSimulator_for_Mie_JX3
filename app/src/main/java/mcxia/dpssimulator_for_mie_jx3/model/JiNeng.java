@@ -18,10 +18,9 @@ public class JiNeng {
     private int bonusweapondamage;
     private int lasttime;
     private int readtime;
-    /*@CsvBindByName
-    private int huixin;
-    @CsvBindByName
-    private int huixiao;*/
+    private double huixin;
+    private double huixiao;
+    private int percent;
     private HashMap<String, Integer> MiJi;
 
     public JiNeng(String name){
@@ -88,21 +87,36 @@ public class JiNeng {
         this.readtime = readtime;
     }
 
-    /*
-    public int getHuixin(){
+
+    public double getHuixin(){
         return huixin;
     }
-    public void setHuixin(int huixin){
+    public void setHuixin(double huixin){
         this.huixin = huixin;
     }
+    public void addHuixin(double a){
+        this.huixin += a;
+    }
 
-    public int getHuixiao(){
+    public double getHuixiao(){
         return huixiao;
     }
-    public void setHuixiao(int huixiao){
+    public void setHuixiao(double huixiao){
         this.huixiao = huixiao;
     }
-    */
+    public void addHuixiao(double a){
+        this.huixiao += a;
+    }
+
+    public int getPercent(){
+        return percent;
+    }
+    public void setPercent(int percent){
+        this.percent = percent;
+    }
+    public void addPercent(int percent){
+        this.percent += percent;
+    }
 
     public void addMiJi(String name, int effect){
         MiJi.put(name, effect);

@@ -1,6 +1,7 @@
 package mcxia.dpssimulator_for_mie_jx3.model;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.util.Log;
 
@@ -29,11 +30,13 @@ public class Mie {
     private double N, A, X;
     private double AttNum;
     private double WAttNum;
+    private int[] qixue;
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
         MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
         JN = new HashMap<>();
         dou = 10;
+        qixue = new int[10];
     }
 
 
@@ -55,6 +58,9 @@ public class Mie {
                 sample.setReadtime(Integer.parseInt(tokens[6]));
                 sample.setBasicDamage(Integer.parseInt(tokens[7]));
                 sample.setBonusDamage(Integer.parseInt(tokens[8]));
+                sample.setHuixin(Double.parseDouble(tokens[9]));
+                sample.setHuixiao(Double.parseDouble(tokens[10]));
+                sample.setPercent(Integer.parseInt(tokens[11]));
                 JN.put(tokens[0], sample);
             }
         } catch (IOException e){
@@ -97,19 +103,24 @@ public class Mie {
     }
 
     //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
+    //Add SXC shanghai
+
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
-        dou += 2;
-        if(dou > 10){
-            dou = 10;
-        }
+//        dou += 2;
+//        if(dou > 10){
+//            dou = 10;
+//        }
         return 0.0;
     }
 
     public double doBH(){ //Ba Huang
         setBHcd(15.0);
-        //Dou calculation(TBD)
+        dou += 2;
+        if(dou > 10){
+            dou = 10;
+        }
         return 0.0;
     }
 
@@ -118,7 +129,6 @@ public class Mie {
         double N = MianBan.getAttack() - MianBan.getShenfa()*1.45;
         double A = MianBan.getShenfa()*1.45;
         double X = 0.0; //(TBD)
-        //Dou calculation(TBD)
         return (N*(1+X/100)+A);
     }
 
@@ -133,6 +143,9 @@ public class Mie {
             dou = 10;
         }
         int rand = (int)(Math.random()*13 + 123);
+        if(qixue[0] == 1){
+
+        }
         return (1 + MianBan.getPofang())*(rand + AttNum*0.825 + 1*WAttNum);
     }
 
@@ -158,5 +171,13 @@ public class Mie {
 
     public int getDouLimit(){
         return douLimit;
+    }
+
+    public void setQixue(int index, int choice){
+        qixue[index] = choice;
+    }
+
+    public void saveModel(){
+        //Save model in CSV file.
     }
 }
