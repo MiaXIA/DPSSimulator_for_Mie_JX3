@@ -1,13 +1,16 @@
 package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
@@ -26,11 +29,20 @@ public class QixueActivity extends Activity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qixue);
+        SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
+        try{
+            FileInputStream fin = openFileInput("TempJN");
+            mymie = new Mie();
+            mymie.loadModel(sharedpreferences, fin);
+        } catch(Exception e){
+            Log.e("File Error", "Error while open file.");
+        }
         initView();
 
         Button gotoMiji = findViewById(R.id.gotomiji_button);
         gotoMiji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                //mymie.saveModel();
                 Intent i = new Intent(getBaseContext(), MijiActivity.class);
                 startActivity(i);
             }
@@ -67,7 +79,7 @@ public class QixueActivity extends Activity {
                     mymie.getJN().get("wwwj").addPercent(10);
                     //mymie.getJN().get("wjgz").addPercent(10);
                     //mymie.getJN().get("wjgz").setCd(mymie.getJN().get("wjgz").getCd() - 3.0);
-                } else if (checkedId == R.id.qx2_2) {  //深埋:三环、无我、万剑、八荒、平砍会心后立刻+2气点
+                } else if (checkedId == R.id.qx2_2) {  //深埋
                     mymie.setQixue(1, 2);
                 } else if (checkedId == R.id.qx2_3) {  //吐故纳新
                     //?????????????????????????????????????
@@ -96,7 +108,7 @@ public class QixueActivity extends Activity {
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
                 if (checkedId == R.id.qx4_1) {  //风逝
-                } else if (checkedId == R.id.qx4_2) {  //无意:消耗10气点施展无我时，无我+10%会心，20%会效
+                } else if (checkedId == R.id.qx4_2) {  //无意
                     mymie.setQixue(3, 2);
                 } else if (checkedId == R.id.qx4_3) {  //元剑
                     mymie.setQixue(3, 3);
