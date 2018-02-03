@@ -1,13 +1,16 @@
 package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 
+import java.io.FileInputStream;
 import java.io.InputStream;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
@@ -26,14 +29,20 @@ public class QixueActivity extends Activity {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qixue);
-        mymie = new Mie();
-        mymie.loadModel();
+        SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
+        try{
+            FileInputStream fin = openFileInput("TempJN");
+            mymie = new Mie();
+            mymie.loadModel(sharedpreferences, fin);
+        } catch(Exception e){
+            Log.e("File Error", "Error while open file.");
+        }
         initView();
 
         Button gotoMiji = findViewById(R.id.gotomiji_button);
         gotoMiji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mymie.saveModel();
+                //mymie.saveModel();
                 Intent i = new Intent(getBaseContext(), MijiActivity.class);
                 startActivity(i);
             }

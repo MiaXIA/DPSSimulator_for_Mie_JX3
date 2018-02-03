@@ -1,14 +1,20 @@
 package mcxia.dpssimulator_for_mie_jx3.model;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import java.io.InputStreamReader;
+import java.util.Map;
 
 /**
  * Created by pipiyby on 11/17/17.
@@ -31,7 +37,7 @@ public class Mie {
     }
 
     public Mie(int attack, int shenfa, double huixin, double huixiao, double jiasu, double mingzhong, double wushuang, int pofang){
-        MianBan = new PersonalAttribute( attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
+        MianBan = new PersonalAttribute(attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
         JN = new HashMap<>();
         dou = 10;
         qixue = new int[10];
@@ -250,11 +256,104 @@ public class Mie {
         qixue[index] = choice;
     }
 
-    public void saveModel(){
+    public void saveModel(SharedPreferences sharedpreferences, FileOutputStream fOut){
+        //Save model in sharedpreferences.
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putInt("attack", MianBan.getAttack());
+        editor.putInt("shenfa", MianBan.getShenfa());
+        editor.putString("huixin", Double.toString(MianBan.getHuixin()));
+        editor.putString("huixiao", Double.toString(MianBan.getHuixiao()));
+        editor.putString("jiasu", Double.toString(MianBan.getJiasu()));
+        editor.putString("mingzhong", Double.toString(MianBan.getMingzhong()));
+        editor.putString("wushuang", Double.toString(MianBan.getWushuang()));
+        editor.putInt("attack", MianBan.getPofang());
+        editor.putInt("Dou", dou);
+        editor.putString("SXCTime", Double.toString(SXCTime));
+        editor.putString("BHcd", Double.toString(BHcd));
+        editor.putInt("DouLimit", douLimit);
+        editor.putString("N", Double.toString(N));
+        editor.putString("A", Double.toString(A));
+        editor.putString("X", Double.toString(X));
+        editor.putString("AttNum", Double.toString(AttNum));
+        editor.putString("WAttNum", Double.toString(WAttNum));
+        editor.putString("qixue", Arrays.toString(qixue));
+        editor.commit();
+
         //Save model in CSV file.
+        for(Map.Entry<String, JiNeng> J : JN.entrySet()){
+            String s = "";
+            s += J.getKey() + ",";
+            JiNeng tempJiNeng = J.getValue();
+            s += Integer.toString(tempJiNeng.getMana()) + ",";
+            s += Integer.toString(tempJiNeng.getDou()) + ",";
+            s += Double.toString(tempJiNeng.getCd()) + ",";
+            s += Double.toString(tempJiNeng.getGcd()) + ",";
+            s += Integer.toString(tempJiNeng.getLasttime()) + ",";
+            s += Integer.toString(tempJiNeng.getReadtime()) + ",";
+            s += Integer.toString(tempJiNeng.getBasicDamage()) + ",";
+            s += Integer.toString(tempJiNeng.getBonusDamage()) + ",";
+            s += Double.toString(tempJiNeng.getHuixin()) + ",";
+            s += Double.toString(tempJiNeng.getHuixiao()) + ",";
+            s += Integer.toString(tempJiNeng.getPercent()) + "\n";
+            try{
+                fOut.write(s.getBytes());
+            } catch(Exception e){
+                Log.e("File Error", "Error while writing to interal storage.");
+            }
+        }
+        try{
+            fOut.close();
+        } catch (Exception e){
+            Log.e("File Error", "Close file failed.");
+        }
     }
 
-    public void loadModel(){
+    public void loadModel(SharedPreferences sharedpreferences, FileInputStream fin){
+        //Load model from SharedPreferences
+        MianBan = new PersonalAttribute(sharedpreferences.getInt("attack", 0), sharedpreferences.getInt("shenfa", 0),
+                Double.parseDouble(sharedpreferences.getString("huixin", "0.0")), Double.parseDouble(sharedpreferences.getString("huixiao", "0.0")),
+                Double.parseDouble(sharedpreferences.getString("jiasu", "0.0")), Double.parseDouble(sharedpreferences.getString("mingzhong", "0.0")),
+                Double.parseDouble(sharedpreferences.getString("wushuang", "0.0")), sharedpreferences.getInt("pofang", 0));
         //Load model in CSV file.
+        JN = new HashMap<String, JiNeng>();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
+        try{
+            String line = reader.readLine();
+            while((line = reader.readLine()) != null){
+                //Split first
+                String[] tokens = line.split(",");
+                //Init JiNeng Class
+                JiNeng sample = new JiNeng(tokens[0]);
+                sample.setMana(Integer.parseInt(tokens[1]));
+                sample.setDou(Integer.parseInt(tokens[2]));
+                sample.setCd(Double.parseDouble(tokens[3]));
+                sample.setGcd(Double.parseDouble(tokens[4]));
+                sample.setLasttime(Integer.parseInt(tokens[5]));
+                sample.setReadtime(Integer.parseInt(tokens[6]));
+                sample.setBasicDamage(Integer.parseInt(tokens[7]));
+                sample.setBonusDamage(Integer.parseInt(tokens[8]));
+                sample.setHuixin(Double.parseDouble(tokens[9]));
+                sample.setHuixiao(Double.parseDouble(tokens[10]));
+                sample.setPercent(Integer.parseInt(tokens[11]));
+                JN.put(tokens[0], sample);
+            }
+        } catch (IOException e){
+            Log.e("Parse Test", "CSV Test " + e.getMessage());
+            e.printStackTrace();
+        }
+        dou = sharedpreferences.getInt("Dou", 10);
+        SXCTime = Double.parseDouble(sharedpreferences.getString("SXCTime", "0.0"));
+        BHcd = Double.parseDouble(sharedpreferences.getString("BHcd", "0.0"));
+        douLimit = sharedpreferences.getInt("DouLimit", 0);
+        N = Double.parseDouble(sharedpreferences.getString("N", "0.0"));
+        A = Double.parseDouble(sharedpreferences.getString("A", "0.0"));
+        X = Double.parseDouble(sharedpreferences.getString("X", "0.0"));
+        AttNum = Double.parseDouble(sharedpreferences.getString("AttNum", "0.0"));
+        WAttNum = Double.parseDouble(sharedpreferences.getString("WAttNum", "0.0"));
+        String[] qixueStr = sharedpreferences.getString("qixue", "").split("]")[0].split("\\[")[1].split(",");
+        qixue = new int[12];
+        for(int i=0; i<12; i++){
+            qixue[i] = Integer.parseInt(qixueStr[i]);
+        }
     }
 }
