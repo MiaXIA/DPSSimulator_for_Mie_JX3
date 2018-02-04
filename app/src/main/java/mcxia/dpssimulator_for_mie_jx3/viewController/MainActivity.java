@@ -50,15 +50,19 @@ public class MainActivity extends AppCompatActivity{
                 Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
                 InputStream is = getResources().openRawResource(R.raw.jineng);
                 myMie.InitJiNeng(is);
+                boolean cond = false;
                 SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
                 try{
-                    FileOutputStream fOut = openFileOutput("TempJN",MODE_WORLD_READABLE);
+                    FileOutputStream fOut = openFileOutput("TempJN",Context.MODE_PRIVATE);
                     myMie.saveModel(sharedpreferences, fOut);
+                    Log.d("Write to file", "Success");
                 } catch (Exception e){
                     Log.e("File Error", "Error when try to open file to write.");
+                    e.printStackTrace();
+                } finally {
+                    Intent i = new Intent(getBaseContext(), QixueActivity.class);
+                    startActivity(i);
                 }
-                Intent i = new Intent(getBaseContext(), QixueActivity.class);
-                startActivity(i);
             }
         });
     }

@@ -32,10 +32,13 @@ public class QixueActivity extends Activity {
         SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
         try{
             FileInputStream fin = openFileInput("TempJN");
+            Log.d("Open File", "Success");
             mymie = new Mie();
             mymie.loadModel(sharedpreferences, fin);
+            Log.d("Load Model", "Success");
         } catch(Exception e){
             Log.e("File Error", "Error while open file.");
+            e.printStackTrace();
         }
         initView();
 

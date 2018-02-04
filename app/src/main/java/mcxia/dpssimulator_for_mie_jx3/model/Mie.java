@@ -40,7 +40,7 @@ public class Mie {
         MianBan = new PersonalAttribute(attack, shenfa, huixin, huixiao, jiasu, mingzhong, wushuang, pofang);
         JN = new HashMap<>();
         dou = 10;
-        qixue = new int[10];
+        qixue = new int[12];
     }
 
 
@@ -266,6 +266,7 @@ public class Mie {
         editor.putString("jiasu", Double.toString(MianBan.getJiasu()));
         editor.putString("mingzhong", Double.toString(MianBan.getMingzhong()));
         editor.putString("wushuang", Double.toString(MianBan.getWushuang()));
+        editor.putInt("pofang", MianBan.getPofang());
         editor.putInt("attack", MianBan.getPofang());
         editor.putInt("Dou", dou);
         editor.putString("SXCTime", Double.toString(SXCTime));
@@ -303,6 +304,9 @@ public class Mie {
         }
         try{
             fOut.close();
+            Log.d("Save File", "Success");
+            Log.d("Save Test", "jiasu=" + MianBan.getJiasu());
+            Log.d("Save Test", "JN rjhy cd = " + JN.get("rjhy").getCd());
         } catch (Exception e){
             Log.e("File Error", "Close file failed.");
         }
@@ -350,10 +354,12 @@ public class Mie {
         X = Double.parseDouble(sharedpreferences.getString("X", "0.0"));
         AttNum = Double.parseDouble(sharedpreferences.getString("AttNum", "0.0"));
         WAttNum = Double.parseDouble(sharedpreferences.getString("WAttNum", "0.0"));
-        String[] qixueStr = sharedpreferences.getString("qixue", "").split("]")[0].split("\\[")[1].split(",");
+        String qixueStr = sharedpreferences.getString("qixue", "").split("]")[0].split("\\[")[1];
+        String[] qixueTar = qixueStr.split(", ");
         qixue = new int[12];
         for(int i=0; i<12; i++){
-            qixue[i] = Integer.parseInt(qixueStr[i]);
+            qixue[i] = Integer.parseInt(qixueTar[i]);
         }
+        Log.d("Load Model", "Success");
     }
 }
