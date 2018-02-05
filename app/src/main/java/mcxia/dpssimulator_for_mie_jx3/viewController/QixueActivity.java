@@ -24,6 +24,7 @@ public class QixueActivity extends Activity {
     private RadioGroup qx1RadioGroup,qx2RadioGroup,qx3RadioGroup,qx4RadioGroup,qx5RadioGroup,qx6RadioGroup;
     private RadioGroup qx7RadioGroup,qx8RadioGroup,qx9RadioGroup,qx10RadioGroup,qx11RadioGroup,qx12RadioGroup;
     private Mie mymie;
+    private int[] qixue;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -46,14 +47,15 @@ public class QixueActivity extends Activity {
         gotoMiji.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //mymie.saveModel();
-                Intent i = new Intent(getBaseContext(), MijiActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(getBaseContext(), MijiActivity.class);
+                //startActivity(i);
             }
         });
     }
 
     private void initView() {
         /** RadioGroup and RadioButton **/
+        qixue = new int[12];
         qx1RadioGroup = findViewById(R.id.qx1);
         qx1RadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -61,13 +63,11 @@ public class QixueActivity extends Activity {
                 //TODO
                 if (checkedId == R.id.qx1_1) {  //挫锐
                     mymie.setQixue(0, 1);
-                    mymie.getJN().get("shty").addHuixiao(10.0);
-                    mymie.getJN().get("shty").addHuixin(10.0);
+                    qixue[0] = 1;
                 } else if (checkedId == R.id.qx1_2) {  //心固
                     mymie.setQixue(0, 2);
-                    mymie.getJN().get("shty").addPercent(10);
+                    qixue[0] = 2;
                 } else if (checkedId == R.id.qx1_3) {  //不善
-                    //???????????????????????????????????
                 }
             }
         });
@@ -79,13 +79,11 @@ public class QixueActivity extends Activity {
                 //TODO
                 if (checkedId == R.id.qx2_1) {  //同根
                     mymie.setQixue(1, 1);
-                    mymie.getJN().get("wwwj").addPercent(10);
-                    //mymie.getJN().get("wjgz").addPercent(10);
-                    //mymie.getJN().get("wjgz").setCd(mymie.getJN().get("wjgz").getCd() - 3.0);
+                    qixue[1] = 1;
                 } else if (checkedId == R.id.qx2_2) {  //深埋
                     mymie.setQixue(1, 2);
+                    qixue[1] = 2;
                 } else if (checkedId == R.id.qx2_3) {  //吐故纳新
-                    //?????????????????????????????????????
                 }
             }
         });
@@ -95,10 +93,12 @@ public class QixueActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
-                if (checkedId == R.id.qx3_1) {  //昆吾:消耗10气点施展无我有25%几率马上回复4气点，8秒CD
+                if (checkedId == R.id.qx3_1) {  //昆吾:8秒CD待实现
                     mymie.setQixue(2, 1);
+                    qixue[2] = 1;
                 } else if (checkedId == R.id.qx3_2) {  //白虹:产品胎说不算它
                     mymie.setQixue(2, 2);
+                    qixue[2] = 2;
                 } else if (checkedId == R.id.qx3_3) {  //数穷
                 } else if (checkedId == R.id.qx3_4) { //化三清
                 }
@@ -113,10 +113,10 @@ public class QixueActivity extends Activity {
                 if (checkedId == R.id.qx4_1) {  //风逝
                 } else if (checkedId == R.id.qx4_2) {  //无意
                     mymie.setQixue(3, 2);
+                    qixue[3] = 2;
                 } else if (checkedId == R.id.qx4_3) {  //元剑
                     mymie.setQixue(3, 3);
-                    mymie.getJN().get("bhgy").addHuixin(10.0);
-                    mymie.getJN().get("bhgy").addHuixiao(20.0);
+                    qixue[3] = 3;
                 } else if (checkedId == R.id.qx4_4) {  //剑飞惊天
                 }
             }
@@ -131,6 +131,7 @@ public class QixueActivity extends Activity {
 
                 } else if (checkedId == R.id.qx5_2) {  //心转:每有2个气点，三环伤害+5%
                     mymie.setQixue(4, 2);
+                    qixue[4] = 2;
                 } else if (checkedId == R.id.qx5_3) {  //狂歌
 
                 } else if (checkedId == R.id.qx5_4) {  //合真
@@ -150,6 +151,7 @@ public class QixueActivity extends Activity {
 
                 } else if (checkedId == R.id.qx6_3) {  //叠刃:无我会心后，+1层叠刃
                     mymie.setQixue(5, 3);
+                    qixue[5] = 3;
                 } else if (checkedId == R.id.qx6_4) {  //开兑
 
                 }
@@ -161,12 +163,13 @@ public class QixueActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
-                if (checkedId == R.id.qx7_1) {  //切玉:施展八荒后，若目标血量<40%，则立即引爆叠刃
+                if (checkedId == R.id.qx7_1) {  //切玉:施展八荒后，若目标血量<40%，则立即引爆叠刃，木桩不触发
                     mymie.setQixue(6, 1);
-                } else if (checkedId == R.id.qx7_2) {  //雾外江山:读条施展气场后，8秒内下一个气场瞬发；施展所有气场立即额外获得2个气点
+                    qixue[6] = 1;
+                } else if (checkedId == R.id.qx7_2) {  //雾外江山
                     mymie.setQixue(6, 2);
+                    qixue[6] = 2;
                 } else if (checkedId == R.id.qx7_3) {  //云凌
-                    mymie.setQixue(6, 3);
                 } else if (checkedId == R.id.qx7_4) {  //凌太虚
 
                 }
@@ -180,6 +183,7 @@ public class QixueActivity extends Activity {
                 //TODO
                 if (checkedId == R.id.qx8_1) {  //负阴:碎星辰对自身增益提高100%
                     mymie.setQixue(7, 1);
+                    qixue[7] = 1;
                 } else if (checkedId == R.id.qx8_2) {  //无我
 
                 } else if (checkedId == R.id.qx8_3) {  //匣中
@@ -195,8 +199,9 @@ public class QixueActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
-                if (checkedId == R.id.qx9_1) {  //和光:八荒命中带有叠刃的目标后，额外造成一段伤害，数值为八荒一段伤害的25%
+                if (checkedId == R.id.qx9_1) {  //和光
                     mymie.setQixue(8, 1);
+                    qixue[8] = 1;
                 } else if (checkedId == R.id.qx9_2) {  //实腹
 
                 } else if (checkedId == R.id.qx9_3) {  //故长
@@ -212,8 +217,9 @@ public class QixueActivity extends Activity {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
                 //TODO
-                if (checkedId == R.id.qx10_1) {  //期声:位于增益气场中时增加10%基础攻击力
+                if (checkedId == R.id.qx10_1) {  //期声:位于增益气场中时增加10%基础攻击力,算在X里
                     mymie.setQixue(9, 1);
+                    qixue[9] = 1;
                 } else if (checkedId == R.id.qx10_2) {  //物我两忘
 
                 } else if (checkedId == R.id.qx10_3) {  //御风
@@ -231,6 +237,7 @@ public class QixueActivity extends Activity {
                 //TODO
                 if (checkedId == R.id.qx11_1) {  //无欲:每消耗2个气点施展无我无剑，八荒CD-1S
                     mymie.setQixue(10, 1);
+                    qixue[10] = 1;
                 } else if (checkedId == R.id.qx11_2) {  //凶年
 
                 } else if (checkedId == R.id.qx11_3) {  //静笃
@@ -250,8 +257,9 @@ public class QixueActivity extends Activity {
 
                 } else if (checkedId == R.id.qx12_2) {  //固本
 
-                } else if (checkedId == R.id.qx12_3) {  //玄门:人剑合一每引爆一个气场，叠加一层玄门buff：会心+5%，破防+20%，最多叠加三层；叠加时刷新玄门时间
+                } else if (checkedId == R.id.qx12_3) {  //玄门
                     mymie.setQixue(11, 3);
+                    qixue[11] = 3;
                 } else if (checkedId == R.id.qx12_4) {  //行天道
 
                 }
@@ -259,5 +267,26 @@ public class QixueActivity extends Activity {
         });
     }
 
+    private void loadQiXue() {
+        if (qixue[0] == 1) {
+            mymie.getJN().get("shty").addHuixiao(10.0);
+            mymie.getJN().get("shty").addHuixin(10.0);
+        } else if (qixue[0] == 2) {
+            mymie.getJN().get("shty").addPercent(10);
+        }
 
+        if (qixue[1] == 1) {
+            mymie.getJN().get("wwwj").addPercent(10);
+        }
+
+        if (qixue[3] == 3) {
+            mymie.getJN().get("bhgy").addHuixin(10.0);
+            mymie.getJN().get("bhgy").addHuixiao(20.0);
+        }
+
+        if(qixue[11] == 3){
+            mymie.getMianBan().setHuixin(mymie.getMianBan().getHuixin()+5);
+            mymie.getMianBan().setPofang((int)(mymie.getMianBan().getPofang()*1.2));
+        }
+    }
 }
