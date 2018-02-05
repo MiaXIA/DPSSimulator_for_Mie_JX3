@@ -277,6 +277,9 @@ public class QixueActivity extends Activity {
 
         if (qixue[1] == 1) {
             mymie.getJN().get("wwwj").addPercent(10);
+            mymie.setDouLimit(9);
+        } else if(qixue[1] == 2){
+            mymie.setDouLimit(6);
         }
 
         if (qixue[3] == 3) {

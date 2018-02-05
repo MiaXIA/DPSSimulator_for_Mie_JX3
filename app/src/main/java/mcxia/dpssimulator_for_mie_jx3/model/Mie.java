@@ -108,6 +108,10 @@ public class Mie {
         this.BHcd = BHcd;
     }
 
+    public void setDouLimit(int douLimit){
+        this.douLimit = douLimit;
+    }
+
     //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
 
     public double doSXC(){  //Sui Xing Chen
