@@ -1,18 +1,25 @@
 package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
+import mcxia.dpssimulator_for_mie_jx3.model.Mie;
 
 /**
  * Created by pipiyby on 1/11/18.
@@ -25,17 +32,33 @@ public class MijiActivity extends AppCompatActivity {
     private CheckBox c41,c42,c43,c44,c45,c46,c47,c48;
     private int bhgyChecked, wwwjChecked, shtyChecked, rjhyChecked;
     Button gotoResult;
+    private Mie mymie;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_miji);
+        SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
+        mymie = new Mie();
+        mymie.loadModel(sharedpreferences, null);
+        InputStream is = getResources().openRawResource(R.raw.jineng);
+        mymie.InitJiNeng(is);
         Button gotoResult = findViewById(R.id.gotoresult_button);
         gotoResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 //TODO
-                Intent i = new Intent(getBaseContext(), MijiActivity.class);
-                startActivity(i);
+                SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
+                try{
+                    FileOutputStream fOut = openFileOutput("TempJN",Context.MODE_PRIVATE);
+                    mymie.saveModel(sharedpreferences, fOut);
+                    Log.d("Write to file", "Success");
+                } catch (Exception e){
+                    Log.e("File Error", "Error when try to open file to write.");
+                    e.printStackTrace();
+                } finally {
+                    Intent i = new Intent(getBaseContext(), QixueActivity.class);
+                    startActivity(i);
+                }
             }
         });
 

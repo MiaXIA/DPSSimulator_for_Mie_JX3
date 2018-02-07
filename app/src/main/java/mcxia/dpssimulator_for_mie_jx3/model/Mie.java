@@ -71,7 +71,6 @@ public class Mie {
             Log.e("Parse Test", "CSV Test " + e.getMessage());
             e.printStackTrace();
         }
-        //Log.d("Parse Test", "2 " + JN.get("wwwj").getBonusDamage());
         SXCTime = JN.get("sxc").getLasttime();
         BHcd = JN.get("bhgy").getCd();
     }
@@ -82,6 +81,9 @@ public class Mie {
 
     static public String showMianBan(){
         return MianBan.toString();
+    }
+    public PersonalAttribute getMianBan(){
+        return MianBan;
     }
 
     public HashMap<String, JiNeng> getJN(){
@@ -106,12 +108,21 @@ public class Mie {
         this.BHcd = BHcd;
     }
 
-    //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
-    //Add SXC shanghai
+    public void setDouLimit(int douLimit){
+        this.douLimit = douLimit;
+    }
 
+    //伤害=（1+破防)×[基础伤害+（攻击力×技能系数）+（武器伤害×武伤系数）]
 
     public double doSXC(){  //Sui Xing Chen
         setSXCTime(24.0);
+        //雾外江山
+        if(qixue[6] == 2){
+            dou += 2;
+            if(dou > 10){
+                dou = 10;
+            }
+        }
         return 0.0;
     }
 
@@ -163,7 +174,7 @@ public class Mie {
         if(fulldou && qixue[2] == 1){
             double huidou = Math.random();
             if(huidou < 0.25){
-                dou = 4;
+                dou = 6;
             } else {
                 dou = 0;
             }
@@ -281,34 +292,36 @@ public class Mie {
         editor.commit();
 
         //Save model in CSV file.
-        for(Map.Entry<String, JiNeng> J : JN.entrySet()){
-            String s = "";
-            s += J.getKey() + ",";
-            JiNeng tempJiNeng = J.getValue();
-            s += Integer.toString(tempJiNeng.getMana()) + ",";
-            s += Integer.toString(tempJiNeng.getDou()) + ",";
-            s += Double.toString(tempJiNeng.getCd()) + ",";
-            s += Double.toString(tempJiNeng.getGcd()) + ",";
-            s += Integer.toString(tempJiNeng.getLasttime()) + ",";
-            s += Integer.toString(tempJiNeng.getReadtime()) + ",";
-            s += Integer.toString(tempJiNeng.getBasicDamage()) + ",";
-            s += Integer.toString(tempJiNeng.getBonusDamage()) + ",";
-            s += Double.toString(tempJiNeng.getHuixin()) + ",";
-            s += Double.toString(tempJiNeng.getHuixiao()) + ",";
-            s += Integer.toString(tempJiNeng.getPercent()) + "\n";
-            try{
-                fOut.write(s.getBytes());
-            } catch(Exception e){
-                Log.e("File Error", "Error while writing to interal storage.");
+        if(fOut != null){
+            for(Map.Entry<String, JiNeng> J : JN.entrySet()){
+                String s = "";
+                s += J.getKey() + ",";
+                JiNeng tempJiNeng = J.getValue();
+                s += Integer.toString(tempJiNeng.getMana()) + ",";
+                s += Integer.toString(tempJiNeng.getDou()) + ",";
+                s += Double.toString(tempJiNeng.getCd()) + ",";
+                s += Double.toString(tempJiNeng.getGcd()) + ",";
+                s += Integer.toString(tempJiNeng.getLasttime()) + ",";
+                s += Integer.toString(tempJiNeng.getReadtime()) + ",";
+                s += Integer.toString(tempJiNeng.getBasicDamage()) + ",";
+                s += Integer.toString(tempJiNeng.getBonusDamage()) + ",";
+                s += Double.toString(tempJiNeng.getHuixin()) + ",";
+                s += Double.toString(tempJiNeng.getHuixiao()) + ",";
+                s += Integer.toString(tempJiNeng.getPercent()) + "\n";
+                try{
+                    fOut.write(s.getBytes());
+                } catch(Exception e){
+                    Log.e("File Error", "Error while writing to interal storage.");
+                }
             }
-        }
-        try{
-            fOut.close();
-            Log.d("Save File", "Success");
-            Log.d("Save Test", "jiasu=" + MianBan.getJiasu());
-            Log.d("Save Test", "JN rjhy cd = " + JN.get("rjhy").getCd());
-        } catch (Exception e){
-            Log.e("File Error", "Close file failed.");
+            try{
+                fOut.close();
+                Log.d("Save File", "Success");
+                Log.d("Save Test", "jiasu=" + MianBan.getJiasu());
+                Log.d("Save Test", "JN rjhy cd = " + JN.get("rjhy").getCd());
+            } catch (Exception e){
+                Log.e("File Error", "Close file failed.");
+            }
         }
     }
 
@@ -318,33 +331,6 @@ public class Mie {
                 Double.parseDouble(sharedpreferences.getString("huixin", "0.0")), Double.parseDouble(sharedpreferences.getString("huixiao", "0.0")),
                 Double.parseDouble(sharedpreferences.getString("jiasu", "0.0")), Double.parseDouble(sharedpreferences.getString("mingzhong", "0.0")),
                 Double.parseDouble(sharedpreferences.getString("wushuang", "0.0")), sharedpreferences.getInt("pofang", 0));
-        //Load model in CSV file.
-        JN = new HashMap<String, JiNeng>();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
-        try{
-            String line = reader.readLine();
-            while((line = reader.readLine()) != null){
-                //Split first
-                String[] tokens = line.split(",");
-                //Init JiNeng Class
-                JiNeng sample = new JiNeng(tokens[0]);
-                sample.setMana(Integer.parseInt(tokens[1]));
-                sample.setDou(Integer.parseInt(tokens[2]));
-                sample.setCd(Double.parseDouble(tokens[3]));
-                sample.setGcd(Double.parseDouble(tokens[4]));
-                sample.setLasttime(Integer.parseInt(tokens[5]));
-                sample.setReadtime(Integer.parseInt(tokens[6]));
-                sample.setBasicDamage(Integer.parseInt(tokens[7]));
-                sample.setBonusDamage(Integer.parseInt(tokens[8]));
-                sample.setHuixin(Double.parseDouble(tokens[9]));
-                sample.setHuixiao(Double.parseDouble(tokens[10]));
-                sample.setPercent(Integer.parseInt(tokens[11]));
-                JN.put(tokens[0], sample);
-            }
-        } catch (IOException e){
-            Log.e("Parse Test", "CSV Test " + e.getMessage());
-            e.printStackTrace();
-        }
         dou = sharedpreferences.getInt("Dou", 10);
         SXCTime = Double.parseDouble(sharedpreferences.getString("SXCTime", "0.0"));
         BHcd = Double.parseDouble(sharedpreferences.getString("BHcd", "0.0"));
@@ -360,6 +346,36 @@ public class Mie {
         for(int i=0; i<12; i++){
             qixue[i] = Integer.parseInt(qixueTar[i]);
         }
-        Log.d("Load Model", "Success");
+
+        //Load model in CSV file.
+        if(fin != null){
+            JN = new HashMap<String, JiNeng>();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
+            try{
+                String line = reader.readLine();
+                while((line = reader.readLine()) != null){
+                    //Split first
+                    String[] tokens = line.split(",");
+                    //Init JiNeng Class
+                    JiNeng sample = new JiNeng(tokens[0]);
+                    sample.setMana(Integer.parseInt(tokens[1]));
+                    sample.setDou(Integer.parseInt(tokens[2]));
+                    sample.setCd(Double.parseDouble(tokens[3]));
+                    sample.setGcd(Double.parseDouble(tokens[4]));
+                    sample.setLasttime(Integer.parseInt(tokens[5]));
+                    sample.setReadtime(Integer.parseInt(tokens[6]));
+                    sample.setBasicDamage(Integer.parseInt(tokens[7]));
+                    sample.setBonusDamage(Integer.parseInt(tokens[8]));
+                    sample.setHuixin(Double.parseDouble(tokens[9]));
+                    sample.setHuixiao(Double.parseDouble(tokens[10]));
+                    sample.setPercent(Integer.parseInt(tokens[11]));
+                    JN.put(tokens[0], sample);
+                }
+            } catch (IOException e){
+                Log.e("Parse Test", "CSV Test " + e.getMessage());
+                e.printStackTrace();
+            }
+            Log.d("Load Model", "Success");
+        }
     }
 }
