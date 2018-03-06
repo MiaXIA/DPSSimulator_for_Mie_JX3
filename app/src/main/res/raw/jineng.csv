@@ -1,8 +1,8 @@
-name,mana,dou,cd,gcd,lasttime,readtime,basicdamage,bonusweapondamage,huixin,huixiao,percent
-bhgy,538,2,15,1.5,0,0,100,200,0,0,0
-wwwj,584,1,0,1.5,0,0,100,200,0,0,0
-shty,220,2,2,1.5,0,0,100,100,0,0,0
-tdwj,478,2,8,1.5,0,0,100,0,0,0,0
-sxc,222,0,10,1.5,24,1,0,0,0,0,0
-bf,100,0,120,0,12,0,0,0,0,0,0
-rjhy,378,0,20,1.5,0,0,100,0,0,0,0
+name,mana,dou,cd,gcd,lasttime,readtime,basicdamage,bonusweapondamage,huixin,huixiao,percent,bonusmingzhong
+bhgy,538,+2,15,1.5,0,0,100,200,0,0,0,0
+wwwj,584,-1,0,1.5,0,0,100,200,0,0,0,0
+shty,220,+2,2,1.5,0,0,100,100,0,0,0,0
+tdwj,478,+2,8,1.5,0,0,100,0,0,0,0,0
+sxc,222,0,10,1.5,24,1,0,0,0,0,0,0
+bf,100,0,120,0,12,0,0,0,0,0,0,0
+rjhy,378,0,20,1.5,0,0,100,0,0,0,0,0
