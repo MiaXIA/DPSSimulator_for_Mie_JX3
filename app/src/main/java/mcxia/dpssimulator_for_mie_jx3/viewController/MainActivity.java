@@ -1,7 +1,9 @@
 package mcxia.dpssimulator_for_mie_jx3.viewController;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.EditText;
 
+import java.io.FileOutputStream;
 import java.io.InputStream;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
@@ -45,12 +48,24 @@ public class MainActivity extends AppCompatActivity{
         gotoqixue.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Mie myMie = new Mie(getNum(GJ_Num), getNum(SF_Num), getNumd(HXN_Num), getNumd(HXO_Num), getNumd(JS_Num), getNumd(MZ_Num), getNumd(WS_Num), getNum(PF_Num));
-                InputStream is = getResources().openRawResource(R.raw.jineng);
-                myMie.InitJiNeng(is);
-                //myMie.CalAttNum();
-                //goDPSSim(myMie);
-                Intent i = new Intent(getBaseContext(), QixueActivity.class);
+                //InputStream is = getResources().openRawResource(R.raw.jineng);
+                //myMie.InitJiNeng(is);
+                boolean cond = false;
+                SharedPreferences sharedpreferences = getSharedPreferences("tempjineng", Context.MODE_PRIVATE);
+                myMie.saveModel(sharedpreferences, null);
+                Intent i = new Intent(getBaseContext(), MijiActivity.class);
                 startActivity(i);
+//                try{
+//                    FileOutputStream fOut = openFileOutput("TempJN",Context.MODE_PRIVATE);
+//                    myMie.saveModel(sharedpreferences, fOut);
+//                    Log.d("Write to file", "Success");
+//                } catch (Exception e){
+//                    Log.e("File Error", "Error when try to open file to write.");
+//                    e.printStackTrace();
+//                } finally {
+//                    Intent i = new Intent(getBaseContext(), QixueActivity.class);
+//                    startActivity(i);
+//                }
             }
         });
     }
