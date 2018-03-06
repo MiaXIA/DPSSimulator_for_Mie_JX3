@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import mcxia.dpssimulator_for_mie_jx3.R;
+import mcxia.dpssimulator_for_mie_jx3.model.Mie;
 
 /**
  * Created by pipiyby on 1/11/18.
@@ -24,7 +25,8 @@ public class MijiActivity extends AppCompatActivity {
     private CheckBox c31,c32,c33,c34,c35,c36,c37,c38,c39;
     private CheckBox c41,c42,c43,c44,c45,c46,c47,c48;
     private int bhgyChecked, wwwjChecked, shtyChecked, rjhyChecked;
-    Button gotoResult;
+    private Button gotoResult;
+    private Mie mymie;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
@@ -33,7 +35,142 @@ public class MijiActivity extends AppCompatActivity {
         Button gotoResult = findViewById(R.id.gotoresult_button);
         gotoResult.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //TODO
+                if (c11.isChecked()) {
+                    //调息-1s
+                    mymie.getJN().get("bhgy").minusCd(1.0);
+                }
+                if (c12.isChecked()) {
+                    //蓝耗-5%
+                    //mymie.getJN().get("bhgy").minusMana(0.95);
+                }
+                if (c13.isChecked()) {
+                    //蓝耗-10%
+                    //mymie.getJN().get("bhgy").minusMana(0.9);
+                }
+                if (c14.isChecked()) {
+                    //伤害+3%
+                    mymie.getJN().get("bhgy").addPercent(3);
+                }
+                if (c15.isChecked()) {
+                    //伤害+4%
+                    mymie.getJN().get("bhgy").addPercent(4);
+                }
+                if (c16.isChecked()) {
+                    //伤害+5%
+                    mymie.getJN().get("bhgy").addPercent(5);
+                }
+                if (c17.isChecked()) {
+                    //命中+2%
+                    mymie.getJN().get("bhgy").addBonusmingzhong(2.0);
+                }
+                if (c18.isChecked()) {
+                    //命中+0.5气
+
+                }
+                if (c21.isChecked()) {
+                    //会心+2%
+                    mymie.getJN().get("wwwj").addHuixin(2.0);
+                }
+                if (c22.isChecked()) {
+                    //会心+3%
+                    mymie.getJN().get("wwwj").addHuixin(3.0);
+                }
+                if (c23.isChecked()) {
+                    //会心+4%
+                    mymie.getJN().get("wwwj").addHuixin(4.0);
+                }
+                if (c24.isChecked()) {
+                    //伤害+3%
+                    mymie.getJN().get("wwwj").addPercent(3);
+                }
+                if (c25.isChecked()) {
+                    //伤害+4%
+                    mymie.getJN().get("wwwj").addPercent(4);
+                }
+                if (c26.isChecked()) {
+                    //伤害+5%
+                    mymie.getJN().get("wwwj").addPercent(5);
+                }
+                if (c27.isChecked()) {
+                    //命中+1%
+                    mymie.getJN().get("wwwj").addBonusmingzhong(1.0);
+                }
+                if (c28.isChecked()) {
+                    //命中+2%
+                    mymie.getJN().get("wwwj").addBonusmingzhong(2.0);
+                }
+                if (c29.isChecked()) {
+                    //命中+0.5气
+
+                }
+                if (c31.isChecked()) {
+                    //调息-0.5s
+                    mymie.getJN().get("shty").minusCd(0.5);
+                }
+                if (c32.isChecked()) {
+                    //会心+2%
+                    mymie.getJN().get("shty").addHuixin(2.0);
+                }
+                if (c33.isChecked()) {
+                    //会心+3%
+                    mymie.getJN().get("shty").addHuixin(3.0);
+                }
+                if (c34.isChecked()) {
+                    //会心+4%
+                    mymie.getJN().get("shty").addHuixin(4.0);
+                }
+                if (c35.isChecked()) {
+                    //伤害+3%
+                    mymie.getJN().get("shty").addPercent(3);
+                }
+                if (c36.isChecked()) {
+                    //伤害+4%
+                    mymie.getJN().get("shty").addPercent(3);
+                }
+                if (c37.isChecked()) {
+                    //伤害+5%
+                    mymie.getJN().get("shty").addPercent(3);
+                }
+                if (c38.isChecked()) {
+                    //命中+1%
+                    mymie.getJN().get("shty").addBonusmingzhong(1.0);
+                }
+                if (c39.isChecked()) {
+                    //命中+2%
+                    mymie.getJN().get("shty").addBonusmingzhong(2.0);
+                }
+                if (c41.isChecked()) {
+                    //调息-2s
+                    mymie.getJN().get("rjhy").minusCd(2.0);
+                }
+                if (c42.isChecked()) {
+                    //调息-3s
+                    mymie.getJN().get("rjhy").minusCd(3.0);
+                }
+                if (c43.isChecked()) {
+                    //+dot，12s
+                    //默认必选，已经加在正常函数里
+                }
+                if (c44.isChecked()) {
+                    //伤害+40%
+                    mymie.getJN().get("rjhy").addPercent(40);
+                }
+                if (c45.isChecked()) {
+                    //伤害+60%
+                    mymie.getJN().get("bhgy").addPercent(60);
+                }
+                if (c46.isChecked()) {
+                    //距离+1
+                    //默认站撸怪！！！
+                }
+                if (c47.isChecked()) {
+                    //距离+1
+                    //默认站撸怪！！！
+                }
+                if (c48.isChecked()) {
+                    //距离+1
+                    //默认站撸怪！！！
+                }
                 Intent i = new Intent(getBaseContext(), MijiActivity.class);
                 startActivity(i);
             }

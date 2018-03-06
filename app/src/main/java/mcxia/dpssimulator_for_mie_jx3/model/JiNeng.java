@@ -21,6 +21,7 @@ public class JiNeng {
     private double huixin;
     private double huixiao;
     private int percent;
+    private double bonusmingzhong;
     private HashMap<String, Integer> MiJi;
 
     public JiNeng(String name){
@@ -37,6 +38,7 @@ public class JiNeng {
     public void setCd(double cd){
         this.cd = cd;
     }
+    public void minusCd(double a) {this.cd = cd - a;}
 
     public double getGcd(){
         return gcd;
@@ -117,6 +119,10 @@ public class JiNeng {
     public void addPercent(int percent){
         this.percent += percent;
     }
+
+    public double getBonusmingzhong() {return bonusmingzhong;}
+    public void setBonusmingzhong(double bonusmingzhong) {this.bonusmingzhong = bonusmingzhong;}
+    public void addBonusmingzhong(double a) {this.bonusmingzhong = bonusmingzhong + a;}
 
     public void addMiJi(String name, int effect){
         MiJi.put(name, effect);
